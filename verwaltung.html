@@ -1,1 +1,262 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netzwerkkarte – Verwaltung</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 750px;
+            margin: 25px auto;
+            padding: 15px;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        h1 {
+            color: #174c65;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 15px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 5px;
+            background: #176b87;
+            color: white;
+            cursor: pointer;
+        }
+
+        .eintrag {
+            background: white;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .loeschen {
+            background: #b52d35;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Netzwerkkarte verwalten</h1>
+    <p>Hier kannst du neue Einrichtungen hinzufügen.</p>
+
+    <form id="formular">
+        <label for="name">Name der Einrichtung *</label>
+        <input id="name" required>
+
+        <label for="kategorie">Kategorie *</label>
+        <select id="kategorie" required>
+            <option value="">Bitte auswählen</option>
+            <option>Rechtsberatung</option>
+            <option>Medizin</option>
+            <option>Schuldnerberatung</option>
+            <option>Wohnungslosenhilfe</option>
+            <option>Sprachkurse und Weiterbildung</option>
+            <option>Freizeit und Gemeinschaft</option>
+            <option>Migrationsberatung</option>
+            <option>Psychologische Beratungsstellen</option>
+            <option>Sozialbürgerhäuser</option>
+            <option>Sonstiges</option>
+        </select>
+
+        <label for="adresse">Adresse</label>
+        <input id="adresse">
+
+        <label for="telefon">Telefon</label>
+        <input id="telefon">
+
+        <label for="email">E-Mail</label>
+        <input id="email" type="email">
+
+        <label for="website">Website</label>
+        <input id="website" type="url" placeholder="https://...">
+
+        <label for="beschreibung">Beschreibung / Angebot</label>
+        <textarea id="beschreibung" rows="5"></textarea>
+
+        <button type="submit">Einrichtung speichern</button>
+        <button type="button" id="abbrechen" hidden>Bearbeiten abbrechen</button>
+    </form>
+
+    <h2>Gespeicherte neue Einrichtungen</h2>
+    <div id="liste"></div>
+
+    <button type="button" id="exportieren">
+        Sicherung herunterladen
+    </button>
+
+    <script>
+        const SPEICHER = "netzwerkkarte_neue_einrichtungen";
+        let einrichtungen = [];
+        let bearbeitungsId = null;
+
+        try {
+            einrichtungen = JSON.parse(
+                localStorage.getItem(SPEICHER) || "[]"
+            );
+            if (!Array.isArray(einrichtungen)) einrichtungen = [];
+        } catch {
+            einrichtungen = [];
+        }
+
+        const formular = document.getElementById("formular");
+
+        function speichern() {
+            localStorage.setItem(SPEICHER, JSON.stringify(einrichtungen));
+            anzeigen();
+        }
+
+        function anzeigen() {
+            const liste = document.getElementById("liste");
+            liste.replaceChildren();
+
+            if (einrichtungen.length === 0) {
+                liste.textContent = "Noch keine neuen Einrichtungen gespeichert.";
+                return;
+            }
+
+            einrichtungen.forEach(e => {
+                const karte = document.createElement("div");
+                karte.className = "eintrag";
+
+                const titel = document.createElement("h3");
+                titel.textContent = e.name;
+                karte.appendChild(titel);
+
+                const details = [
+                    e.kategorie,
+                    e.adresse,
+                    e.telefon,
+                    e.email,
+                    e.website,
+                    e.beschreibung
+                ].filter(Boolean);
+
+                details.forEach(text => {
+                    const zeile = document.createElement("p");
+                    zeile.textContent = text;
+                    karte.appendChild(zeile);
+                });
+
+                const bearbeiten = document.createElement("button");
+                bearbeiten.textContent = "Bearbeiten";
+                bearbeiten.addEventListener("click", () => bearbeitenEintrag(e.id));
+                karte.appendChild(bearbeiten);
+
+                const loeschen = document.createElement("button");
+                loeschen.textContent = "Löschen";
+                loeschen.className = "loeschen";
+                loeschen.addEventListener("click", () => loeschenEintrag(e.id));
+                karte.appendChild(loeschen);
+
+                liste.appendChild(karte);
+            });
+        }
+
+        formular.addEventListener("submit", event => {
+            event.preventDefault();
+
+            const eintrag = {
+                id: bearbeitungsId || (
+                    Date.now().toString() + Math.random().toString(16).slice(2)
+                ),
+                name: document.getElementById("name").value.trim(),
+                kategorie: document.getElementById("kategorie").value,
+                adresse: document.getElementById("adresse").value.trim(),
+                telefon: document.getElementById("telefon").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                website: document.getElementById("website").value.trim(),
+                beschreibung: document.getElementById("beschreibung").value.trim()
+            };
+
+            if (bearbeitungsId) {
+                einrichtungen = einrichtungen.map(e =>
+                    e.id === bearbeitungsId ? eintrag : e
+                );
+            } else {
+                einrichtungen.push(eintrag);
+            }
+
+            speichern();
+            formular.reset();
+            bearbeitungsId = null;
+            document.getElementById("abbrechen").hidden = true;
+
+            alert("Einrichtung wurde lokal gespeichert.");
+        });
+
+        function bearbeitenEintrag(id) {
+            const e = einrichtungen.find(e => e.id === id);
+            if (!e) return;
+
+            bearbeitungsId = id;
+
+            document.getElementById("name").value = e.name || "";
+            document.getElementById("kategorie").value = e.kategorie || "";
+            document.getElementById("adresse").value = e.adresse || "";
+            document.getElementById("telefon").value = e.telefon || "";
+            document.getElementById("email").value = e.email || "";
+            document.getElementById("website").value = e.website || "";
+            document.getElementById("beschreibung").value = e.beschreibung || "";
+
+            document.getElementById("abbrechen").hidden = false;
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function loeschenEintrag(id) {
+            if (!confirm("Möchtest du diese Einrichtung wirklich löschen?")) return;
+
+            einrichtungen = einrichtungen.filter(e => e.id !== id);
+            speichern();
+        }
+
+        document.getElementById("abbrechen").addEventListener("click", () => {
+            bearbeitungsId = null;
+            formular.reset();
+            document.getElementById("abbrechen").hidden = true;
+        });
+
+        document.getElementById("exportieren").addEventListener("click", () => {
+            const datei = new Blob(
+                [JSON.stringify(einrichtungen, null, 2)],
+                { type: "application/json;charset=utf-8" }
+            );
+
+            const url = URL.createObjectURL(datei);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "netzwerkkartesicherung.json";
+            link.click();
+            URL.revokeObjectURL(url);
+        });
+
+        anzeigen();
+    </script>
+</body>
+</html>
+
