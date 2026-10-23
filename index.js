@@ -494,9 +494,3 @@ async function ladeEinrichtungen() {
 
 ladeEinrichtungen();
 
-await supabase
-  .from('einrichtungen')
-  .update({
-      name: "Neuer Name"
-  })
-  .eq('id', 5);
