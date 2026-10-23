@@ -381,3 +381,122 @@ carousel();
     .catch(error => {
         console.error('Fehler beim Laden der Einrichtungen:', error);
     });
+
+    async function speichern() {
+
+  const { error } = await supabase
+    .from('einrichtungen')
+    .insert([
+      {
+        name: document.getElementById("name").value,
+        kategorie: document.getElementById("kategorie").value,
+        adresse: document.getElementById("adresse").value
+      }
+    ]);
+
+  if(error){
+      alert("Fehler: " + error.message);
+  } else {
+      alert("Einrichtung gespeichert");
+  }
+}
+async function ladeEinrichtungen() {
+
+    const { data, error } = await supabase
+        .from('einrichtungen')
+        .select('*');
+
+    if (error) {
+        console.error('Fehler beim Laden:', error);
+        return;
+    }
+
+    const bereich = document.getElementById('neueEinrichtungen');
+
+    if (!bereich) {
+        console.error('Anzeigebereich nicht gefunden.');
+        return;
+    }
+
+    bereich.replaceChildren();
+
+    data.forEach(einrichtung => {
+
+        const spalte = document.createElement('div');
+        spalte.className = 'col-md-6 col-lg-4 mb-3';
+
+        const karte = document.createElement('div');
+        karte.className = 'card border border-danger h-100';
+
+        const inhalt = document.createElement('div');
+        inhalt.className = 'card-body';
+
+        const titel = document.createElement('h3');
+        titel.className = 'card-title';
+        titel.textContent = einrichtung.name || '';
+        inhalt.appendChild(titel);
+
+        const kategorie = document.createElement('p');
+        kategorie.textContent =
+            'Kategorie: ' + (einrichtung.kategorie || '');
+        inhalt.appendChild(kategorie);
+
+        const adresse = document.createElement('p');
+        adresse.textContent =
+            'Adresse: ' + (einrichtung.adresse || '');
+        inhalt.appendChild(adresse);
+
+        if (einrichtung.telefon) {
+            const telefon = document.createElement('a');
+            telefon.href = 'tel:' + einrichtung.telefon;
+            telefon.textContent =
+                'Telefon: ' + einrichtung.telefon;
+            telefon.className = 'd-block mb-2';
+            inhalt.appendChild(telefon);
+        }
+
+        if (einrichtung.email) {
+            const email = document.createElement('a');
+            email.href = 'mailto:' + einrichtung.email;
+            email.textContent = einrichtung.email;
+            email.className = 'd-block mb-2';
+            inhalt.appendChild(email);
+        }
+
+        if (einrichtung.website) {
+            const website = document.createElement('a');
+            website.href = einrichtung.website;
+            website.textContent = 'Website öffnen';
+            website.target = '_blank';
+            website.rel = 'noopener noreferrer';
+            website.className = 'd-block mb-2';
+            inhalt.appendChild(website);
+        }
+
+        if (einrichtung.beschreibung) {
+            const beschreibung = document.createElement('p');
+            beschreibung.textContent =
+                einrichtung.beschreibung;
+            beschreibung.style.whiteSpace = 'pre-line';
+            inhalt.appendChild(beschreibung);
+        }
+
+        karte.appendChild(inhalt);
+        spalte.appendChild(karte);
+        bereich.appendChild(spalte);
+    });
+
+    console.log(
+        'Einrichtungen geladen:',
+        data.length
+    );
+}
+
+ladeEinrichtungen();
+
+await supabase
+  .from('einrichtungen')
+  .update({
+      name: "Neuer Name"
+  })
+  .eq('id', 5);
