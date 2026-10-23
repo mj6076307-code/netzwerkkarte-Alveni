@@ -208,49 +208,6 @@ function myFunction() {
         }
 
 
-let bereich;
-
-switch (einrichtung.kategorie) {
-
-    case "Rechtsberatung":
-        bereich = document.getElementById("rechtsberatungContainer");
-        break;
-
-    case "Schuldnerberatung":
-        bereich = document.getElementById("schuldnerberatungContainer");
-        break;
-
-    case "Medizin":
-        bereich = document.getElementById("medizinContainer");
-        break;
-
-    case "Wohnungslosenhilfe":
-        bereich = document.getElementById("wohnungslosenhilfeContainer");
-        break;
-    
-    case "Formularhilfe":
-        bereich = document.getElementById("formularhilfeContainer");
-        break;
-
-    case "Migrationsdienste":
-        bereich = document.getElementById("migrationsdiensteContainer");
-        break;
-
- case "Psychologischeberatungen":
-        bereich = document.getElementById("psychologischeberatungenContainer");
-        break;
-
-case "Freizeit":
-        bereich = document.getElementById("freizeitContainer");
-        break;
-
-
-
-    default:
-        bereich = document.getElementById("neueEinrichtungen");
-}
-
-
         var elementIDs = ["dots", "more", "myBtn"];
 
         // Umschalten der Elemente mit den angegebenen IDs
@@ -335,9 +292,7 @@ function carousel() {
 
 carousel();
 
-        
-
-async function ladeEinrichtungen() {
+        async function ladeEinrichtungen() {
 
     const { data, error } =
         await supabaseClient
@@ -350,35 +305,69 @@ async function ladeEinrichtungen() {
         return;
     }
 
-    const bereich =
-        document.getElementById('neueEinrichtungen');
-
-    if (!bereich) return;
-
-    bereich.replaceChildren();
+    // Container leeren
+    document.getElementById("rechtsberatungContainer")?.replaceChildren();
+    document.getElementById("schuldnerberatungContainer")?.replaceChildren();
+    document.getElementById("medizinContainer")?.replaceChildren();
+    document.getElementById("wohnungslosenhilfeContainer")?.replaceChildren();
+    document.getElementById("formularhilfeContainer")?.replaceChildren();
+    document.getElementById("migrationsdiensteContainer")?.replaceChildren();
+    document.getElementById("psychologischeberatungenContainer")?.replaceChildren();
+    document.getElementById("freizeitContainer")?.replaceChildren();
 
     data.forEach(einrichtung => {
 
-        const spalte =
-            document.createElement('div');
+        let bereich;
 
-        spalte.className =
-            'col-md-6 col-lg-4 mb-3';
+        switch (einrichtung.kategorie) {
 
-        const karte =
-            document.createElement('div');
+            case "Rechtsberatung":
+                bereich = document.getElementById("rechtsberatungContainer");
+                break;
 
-        karte.className =
-            'card border border-danger h-100';
+            case "Schuldnerberatung":
+                bereich = document.getElementById("schuldnerberatungContainer");
+                break;
 
-        const inhalt =
-            document.createElement('div');
+            case "Medizin":
+                bereich = document.getElementById("medizinContainer");
+                break;
 
+            case "Wohnungslosenhilfe":
+                bereich = document.getElementById("wohnungslosenhilfeContainer");
+                break;
+
+            case "Formularhilfe":
+                bereich = document.getElementById("formularhilfeContainer");
+                break;
+
+            case "Migrationsberatung":
+                bereich = document.getElementById("migrationsdiensteContainer");
+                break;
+
+            case "Psychologische Beratungsstellen":
+                bereich = document.getElementById("psychologischeberatungenContainer");
+                break;
+
+            case "Freizeit und Gemeinschaft":
+                bereich = document.getElementById("freizeitContainer");
+                break;
+
+            default:
+                return;
+        }
+
+        const spalte = document.createElement('div');
+        spalte.className = 'col-md-6 col-lg-4 mb-3';
+
+        const karte = document.createElement('div');
+        karte.className = 'card border border-danger h-100';
+
+        const inhalt = document.createElement('div');
         inhalt.className = 'card-body';
 
         inhalt.innerHTML = `
             <h3>${einrichtung.name || ''}</h3>
-            <p><strong>Kategorie:</strong> ${einrichtung.kategorie || ''}</p>
             <p><strong>Adresse:</strong> ${einrichtung.adresse || ''}</p>
             ${einrichtung.telefon ? `<p>${einrichtung.telefon}</p>` : ''}
             ${einrichtung.email ? `<p>${einrichtung.email}</p>` : ''}
@@ -388,13 +377,14 @@ async function ladeEinrichtungen() {
 
         karte.appendChild(inhalt);
         spalte.appendChild(karte);
-        bereich.appendChild(spalte);
+
+        if (bereich) {
+            bereich.appendChild(spalte);
+        }
     });
 
-    console.log(
-        'Einrichtungen geladen:',
-        data.length
-    );
+    console.log('Einrichtungen geladen:', data.length);
 }
 
 ladeEinrichtungen();
+
