@@ -100,7 +100,7 @@ Einrichtung speichern
 
 <script>
 
-let supabase = window.supabase.createClient(
+const supabaseClient = window.supabase.createClient(
     "https://avayaffhlnxwwlbkgqna.supabase.co",
     "sb_publishable_HrVqS9DiHDnaOghbUNktQA_o5DbprHe"
 );
@@ -126,7 +126,7 @@ formular.addEventListener("submit", async (event) => {
     alert(JSON.stringify(eintrag));
 
 
-    const { error } = await supabase
+    const { error } = await supabaseClient
         .from("einrichtungen")
         .insert([eintrag]);
 
