@@ -1,29 +1,23 @@
-
 {
-  "id": "/netzwerkkarte-Alveni/",
-  "name": "FIB Netzwerkkarte",
-  "short_name": "Netzwerkkarte",
-  "description": "FIB Netzwerkkarte – Einrichtungen und Kontakte übersichtlich verwalten.",
-  "lang": "de-DE",
+  "name": "Netzwerkkarte Alveni",
+  "short_name": "Alveni",
+  "description": "Digitale Netzwerkkarte für Einrichtungen",
   "start_url": "/netzwerkkarte-Alveni/",
   "scope": "/netzwerkkarte-Alveni/",
   "display": "standalone",
-  "orientation": "any",
   "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "theme_color": "#176b87",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "icons/icon192.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
-      "src": "icons/icon512.png",
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     }
   ]
 }
-
