@@ -208,6 +208,47 @@ function myFunction() {
         }
 
 
+let bereich;
+
+switch (einrichtung.kategorie) {
+
+    case "Rechtsberatung":
+        bereich = document.getElementById("rechtsberatungContainer");
+        break;
+
+    case "Schuldnerberatung":
+        bereich = document.getElementById("schuldnerberatungContainer");
+        break;
+
+    case "Medizin":
+        bereich = document.getElementById("medizinContainer");
+        break;
+
+    case "Wohnungslosenhilfe":
+        bereich = document.getElementById("wohnungslosenhilfeContainer");
+        break;
+    
+    case "Formularhilfe":
+        bereich = document.getElementById("formularhilfeContainer");
+        break;
+
+    case "Migrationsdienste":
+        bereich = document.getElementById("migrationsdiensteContainer");
+        break;
+
+ case "Psychologischeberatungen":
+        bereich = document.getElementById("psychologischeberatungenContainer");
+        break;
+
+case "Freizeit":
+        bereich = document.getElementById("freizeitContainer");
+        break;
+
+
+
+    default:
+        bereich = document.getElementById("neueEinrichtungen");
+}
 
 
         var elementIDs = ["dots", "more", "myBtn"];
