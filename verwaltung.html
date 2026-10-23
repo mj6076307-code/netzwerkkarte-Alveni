@@ -51,7 +51,6 @@ button{
 <body>
 
 <h1>Netzwerkkarte verwalten</h1>
-
 <form id="formular">
 
 <label>Name der Einrichtung *</label>
@@ -106,6 +105,8 @@ const supabase = window.supabase.createClient(
 );
 
 const formular = document.getElementById("formular");
+
+alert("JavaScript läuft");
 
 formular.addEventListener("submit", async (event) => {
 
