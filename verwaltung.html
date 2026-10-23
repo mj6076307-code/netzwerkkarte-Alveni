@@ -120,6 +120,9 @@ formular.addEventListener("submit", async (event) => {
         beschreibung: document.getElementById("beschreibung").value
     };
 
+    alert(JSON.stringify(eintrag));
+
+
     const { error } = await supabase
         .from("einrichtungen")
         .insert([eintrag]);
