@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netzwerkkarte – Verwaltung</title>
 
+<style>
+body{
+    font-family:Arial,sans-serif;
+    max-width:750px;
+    margin:25px auto;
+    padding:15px;
+    background:#f4f6f8;
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    box-sizing:border-box;
+}
+
+button{
+    padding:10px 15px;
+    margin-top:15px;
+    background:#176b87;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.eintrag{
+    background:white;
+    padding:12px;
+    margin-top:12px;
+    border-radius:6px;
+    border:1px solid #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Netzwerkkarte verwalten</h1>
+
+<form id="formular">
+
+<label>Name der Einrichtung *</label>
+<input id="name" required>
+
+<label>Kategorie *</label>
+<select id="kategorie" required>
+    <option value="">Bitte auswählen</option>
+    <option>Rechtsberatung</option>
+    <option>Medizin</option>
+    <option>Schuldnerberatung</option>
+    <option>Wohnungslosenhilfe</option>
+    <option>Sprachkurse und Weiterbildung</option>
+    <option>Freizeit und Gemeinschaft</option>
+    <option>Migrationsberatung</option>
+    <option>Psychologische Beratungsstellen</option>
+    <option>Sozialbürgerhäuser</option>
+    <option>Sonstiges</option>
+</select>
+
+<label>Adresse</label>
+<input id="adresse">
+
+<label>Telefon</label>
+<input id="telefon">
+
+<label>E-Mail</label>
+<input id="email" type="email">
+
+<label>Website</label>
+<input id="website">
+
+<label>Beschreibung</label>
+<textarea id="beschreibung" rows="5"></textarea>
+
+<button type="submit">
+Einrichtung speichern
+</button>
+
+</form>
+
+<h2>Gespeicherte Einrichtungen</h2>
+<div id="liste"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const supabase = window.supabase.createClient(
+    "https://avayaffhlnxwwlbkgqna.supabase.co",
+    "sb_publishable_HrVqS9DiHDnaOghbUNktQA_o5DbprHe"
+);
+
+const formular = document.getElementById("formular");
+
+formular.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const eintrag = {
+        name: document.getElementById("name").value,
+        kategorie: document.getElementById("kategorie").value,
+        adresse: document.getElementById("adresse").value,
+        telefon: document.getElementById("telefon").value,
+        email: document.getElementById("email").value,
+        website: document.getElementById("website").value,
+        beschreibung: document.getElementById("beschreibung").value
+    };
+
+    const { error } = await supabase
+        .from("einrichtungen")
+        .insert([eintrag]);
+
+    if (error) {
+        alert("Fehler: " + error.message);
+        console.error(error);
+        return;
+    }
+
+    alert("Einrichtung erfolgreich gespeichert.");
+
+    formular.reset();
+    ladeEinrichtungen();
+});
+
+async function ladeEinrichtungen() {
+
+    const { data, error } = await supabase
+        .from("einrichtungen")
+        .select("*")
+        .order("id");
+
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    const liste = document.getElementById("liste");
+    liste.innerHTML = "";
+
+    data.forEach(e => {
+
+        const div = document.createElement("div");
+        div.className = "eintrag";
+
+        div.innerHTML = `
+            <h3>${e.name || ""}</h3>
+            <p><strong>Kategorie:</strong> ${e.kategorie || ""}</p>
+            <p><strong>Adresse:</strong> ${e.adresse || ""}</p>
+            <p><strong>Telefon:</strong> ${e.telefon || ""}</p>
+            <p><strong>E-Mail:</strong> ${e.email || ""}</p>
+            <p><strong>Website:</strong> ${e.website || ""}</p>
+            <p>${e.beschreibung || ""}</p>
+        `;
+
+        liste.appendChild(div);
+    });
+}
+
+ladeEinrichtungen();
+
+</script>
+
+</body>
+</html>
