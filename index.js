@@ -299,7 +299,7 @@ carousel();
 async function ladeEinrichtungen() {
 
     const { data, error } =
-        await supabase
+        await supabaseClient
             .from('einrichtungen')
             .select('*')
             .order('id');
