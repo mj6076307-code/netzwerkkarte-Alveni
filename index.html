@@ -3594,7 +3594,19 @@
    <!-- <h2>Neu hinzugefügte Einrichtungen</h2>-->
     <div id="neueEinrichtungen" class="row"></div>
 </section>
+...
+<script src="index.js"></script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service-worker.js')
+    .then(() => console.log('Service Worker registriert'))
+    .catch(err => console.error(err));
+}
+</script>
+
+</body>
+</html>
 </body>
 <!--
 <button><a href="verwaltung.html" target="_blank">Verwaltung</a></button>-->
