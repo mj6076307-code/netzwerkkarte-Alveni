@@ -535,7 +535,7 @@
         }
 
         body {
-            font-family: "Berkshire Swash", cursive;
+            font-family: Arial, Helvetica, sans-serif;;
             /*background-color: #aaa;*/
 
             grid-template-columns: repeat(10, 1fr);
