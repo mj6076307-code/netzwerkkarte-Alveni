@@ -1,267 +1,316 @@
 function myFunction() {
-            var element = document.getElementById("myDiv");
-            element.classList.toggle("Anker");
-        }
-        function myFunction() {
-            var x = document.getElementById("myDiv");
-            x.style.margin = "5% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            }
-            else {
-                x.style.display = "block";
-            }
-        }
-        function myFunction1() {
+    var element = document.getElementById("myDiv");
+    element.classList.toggle("Anker");
+}
+function myFunction() {
+    var x = document.getElementById("myDiv");
+    x.style.margin = "5% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    }
+    else {
+        x.style.display = "block";
+    }
+}
+function myFunction1() {
 
-            var element = document.getElementById("myDiv1");
-            element.classList.toggle("Anker1");
-        }
-        function myFunction1() {
+    var element = document.getElementById("myDiv1");
+    element.classList.toggle("Anker1");
+}
+function myFunction1() {
 
-            var x1 = document.getElementById("myDiv1");
-            x1.style.margin = "5% 0 5% 0";
-            if (x1.style.display === "block") {
-                x1.style.display = "none";
-            } else {
-                x1.style.display = "block";
-                x.style.display = "none";
-                x2.style.display = "none";
-            }
-        }
-        function myFunction2() {
-            var element = document.getElementById("myDiv2");
-            element.classList.toggle("Anker2");
-        }
-        function myFunction2() {
-            var x2 = document.getElementById("myDiv2");
-            x2.style.margin = "8% 0 0% 0";
-            if (x2.style.display === "block") {
-                x2.style.display = "none";
-            } else {
-                x2.style.display = "block";
-                x1.style.display = "none";
-                x.style.display = "none";
-            }
-        }
-        function myFunctionAnker() {
-            var element = document.getElementById("myDiv3");
-            element.classList.toggle("Anker3");
-        }
-        function myFunctionAnker() {
-            var x = document.getElementById("myDiv3");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
-        }
-        function myFunctionAnker1() {
-            var element = document.getElementById("myDiv4");
-            element.classList.toggle("Anker4");
-        }
-        function myFunctionAnker1() {
-            var x = document.getElementById("myDiv4");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
-        }
-        function myFunctionAnker2() {
-            var element = document.getElementById("myDiv5");
-            element.classList.toggle("Anker5");
-        }
-        function myFunctionAnker2() {
-            var x = document.getElementById("myDiv5");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
-        }
-     function myFunctionAnker12() {
-            var element = document.getElementById("myDiv12");
-            element.classList.toggle("Anker");
-        }
-        function myFunctionAnker12() {
-            var x = document.getElementById("myDiv12");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
-        }
-        function myFunctionAnker3() {
-            var element = document.getElementById("myDiv7");
-            element.classList.toggle("Anker7");
-        }
-        function myFunctionAnker3() {
-            var x = document.getElementById("myDiv7");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
-        }
-        function myFunctionAnker6() {
-            var element = document.getElementById("myDiv6");
-            element.classList.toggle("Anker6");
-        }
-        function myFunctionAnker6() {
-            var x = document.getElementById("myDiv6");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
-        }
-        function myFunctionAnker8() {
-            var element = document.getElementById("myDiv8");
-            element.classList.toggle("Anker8");
-        }
-        function myFunctionAnker8() {
-            var x = document.getElementById("myDiv8");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
+    var x1 = document.getElementById("myDiv1");
+    x1.style.margin = "5% 0 5% 0";
+    if (x1.style.display === "block") {
+        x1.style.display = "none";
+    } else {
+        x1.style.display = "block";
+        x.style.display = "none";
+        x2.style.display = "none";
+    }
+}
+function myFunction2() {
+    var element = document.getElementById("myDiv2");
+    element.classList.toggle("Anker2");
+}
+function myFunction2() {
+    var x2 = document.getElementById("myDiv2");
+    x2.style.margin = "8% 0 0% 0";
+    if (x2.style.display === "block") {
+        x2.style.display = "none";
+    } else {
+        x2.style.display = "block";
+        x1.style.display = "none";
+        x.style.display = "none";
+    }
+}
+function myFunctionAnker() {
+    var element = document.getElementById("myDiv3");
+    element.classList.toggle("Anker3");
+}
+function myFunctionAnker() {
+    var x = document.getElementById("myDiv3");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+function myFunctionAnker1() {
+    var element = document.getElementById("myDiv4");
+    element.classList.toggle("Anker4");
+}
+function myFunctionAnker1() {
+    var x = document.getElementById("myDiv4");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+function myFunctionAnker2() {
+    var element = document.getElementById("myDiv5");
+    element.classList.toggle("Anker5");
+}
+function myFunctionAnker2() {
+    var x = document.getElementById("myDiv5");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+function myFunctionAnker3() {
+    var element = document.getElementById("myDiv7");
+    element.classList.toggle("Anker7");
+}
+function myFunctionAnker3() {
+    var x = document.getElementById("myDiv7");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+function myFunctionAnker6() {
+    var element = document.getElementById("myDiv6");
+    element.classList.toggle("Anker6");
+}
+function myFunctionAnker6() {
+    var x = document.getElementById("myDiv6");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+function myFunctionAnker8() {
+    var element = document.getElementById("myDiv8");
+    element.classList.toggle("Anker8");
+}
+function myFunctionAnker8() {
+    var x = document.getElementById("myDiv8");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
 
-            }
-        }
-        function myFunctionAnker5() {
-            var element = document.getElementById("myDiv9");
-            element.classList.toggle("Anker9");
-        }
-        function myFunctionAnker5() {
-            var x = document.getElementById("myDiv9");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
+    }
+}
+function myFunctionAnker5() {
+    var element = document.getElementById("myDiv9");
+    element.classList.toggle("Anker9");
+}
+function myFunctionAnker5() {
+    var x = document.getElementById("myDiv9");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
 
-            }
-        }
-        function myFunctionAnker9() {
-            var element = document.getElementById("myDiv9");
-            element.classList.toggle("Anker9");
-        }
-        function myFunctionAnker9() {
-            var x = document.getElementById("myDiv9");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
+    }
+}
+function myFunctionAnker9() {
+    var element = document.getElementById("myDiv9");
+    element.classList.toggle("Anker9");
+}
+function myFunctionAnker9() {
+    var x = document.getElementById("myDiv9");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
 
-            }
-        }
-        function myFunctionAnker11() {
-            var element = document.getElementById("myDiv11");
-            element.classList.toggle("Anker11");
-        }
-        function myFunctionAnker11() {
-            var x = document.getElementById("myDiv11");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
+    }
+}
+function myFunctionAnker11() {
+    var element = document.getElementById("myDiv11");
+    element.classList.toggle("Anker11");
+}
+function myFunctionAnker11() {
+    var x = document.getElementById("myDiv11");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
 
-            }
-        }
-        function myFunctionAnker8() {
-            var element = document.getElementById("myDiv8");
-            element.classList.toggle("Anker8");
-        }
-        function myFunctionAnker8() {
-            var x = document.getElementById("myDiv8");
-            x.style.margin = "8% 0 0% 0";
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
+    }
+}
+function myFunctionAnker8() {
+    var element = document.getElementById("myDiv8");
+    element.classList.toggle("Anker8");
+}
+function myFunctionAnker8() {
+    var x = document.getElementById("myDiv8");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
 
-            }
-        }
-        function myInfotheck() {
-            var menuall1 = document.getElementById("menuall1");
-            var menuall = document.getElementById("menuall");
+    }
+}
 
-            if (menuall1.style.display === "block") {
-                menuall1.style.display = "none";
-                menuall.style.display = "block";
-            } else if (menuall.style.display === "block") {
-                menuall.style.display = "none";
-                menuall1.style.display = "block";
-            } else {
-                menuall.style.display = "block";
-            }
-        }
+function myFunction12() {
+    var element = document.getElementById("myDiv12");
+    element.classList.toggle("Anker12");
+}
+function myFunctionAnker8() {
+    var x = document.getElementById("myDiv12");
+    x.style.margin = "8% 0 0% 0";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
 
-        function myInfotheck1() {
-            var menuall1 = document.getElementById("menuall1");
-            var menuall = document.getElementById("menuall");
-
-            if (menuall.style.display === "block") {
-                menuall.style.display = "none";
-            } else if (menuall1.style.display === "block") {
-                menuall1.style.display = "none";
-            } else {
-                menuall1.style.display = "block";
-            }
-        }
+    }
+}
 
 
-        var elementIDs = ["dots", "more", "myBtn"];
 
-        // Umschalten der Elemente mit den angegebenen IDs
-        toggleElements(elementIDs);
+function myFunction(button) {
+    const ziel = button.getAttribute("href");
+    const bereich = document.querySelector(ziel);
 
-        // Definition der Funktion zum Umschalten der Elemente
-        function toggleElements(ids) {
-            // Durchlaufen der ID-Liste
-            ids.forEach(function (id) {
-                // Abrufen des Elements anhand seiner ID
-                var element = document.getElementById(id);
-                // Überprüfen, ob das Element gültig ist
-                if (element) {
-                    // Toggle the display of the element
-                    if (window.getComputedStyle(element).display === "none") {
-                        element.style.display = "inline"; // Ändern Sie "inline" in den entsprechenden Anzeigewert
-                    } else {
-                        element.style.display = "none";
-                    }
-                } else {
-                    console.error("Element with ID '" + id + "' not found."); // Error handling, wenn das Element nicht gefunden wird
-                }
-            });
-        }
-        function toggleElement(id) {
-            var elements = document.getElementsByClassName("toggle-element");
-            var elementToShow = document.getElementById(id);
-            if (elementToShow) {
-                if (elementToShow.style.display !== "inline") {
-                    // Hide all elements
-                    for (var i = 0; i < elements.length; i++) {
-                        elements[i].style.display = "none";
-                    }
-                    // Show the clicked element
-                    elementToShow.style.display = "inline";
-                }
+    if (!bereich) return;
+
+    const istOffen = bereich.classList.contains("menu-open");
+
+    bereich.classList.toggle("menu-open", !istOffen);
+    bereich.style.display = istOffen ? "none" : "block";
+}
+
+document.querySelectorAll("#menuall1 .menu-btn").forEach(button => {
+    button.addEventListener("click", function (event) {
+        event.preventDefault();
+        myFunction(this);
+    });
+});
+
+
+function myInfotheck() {
+    var menuall1 = document.getElementById("menuall1");
+    var menuall = document.getElementById("menuall");
+
+    if (menuall1.style.display === "block") {
+        menuall1.style.display = "none";
+        menuall.style.display = "block";
+    } else if (menuall.style.display === "block") {
+        menuall.style.display = "none";
+        menuall1.style.display = "block";
+    } else {
+        menuall.style.display = "block";
+    }
+}
+
+function myInfotheck1() {
+    var menuall1 = document.getElementById("menuall1");
+    var menuall = document.getElementById("menuall");
+
+    if (menuall.style.display === "block") {
+        menuall.style.display = "none";
+    } else if (menuall1.style.display === "block") {
+        menuall1.style.display = "none";
+    } else {
+        menuall1.style.display = "block";
+    }
+}
+
+document.addEventListener("click", function (e) {
+
+    if (!e.target.classList.contains("mehr-btn")) {
+        return;
+    }
+
+    const content =
+        e.target.parentElement.querySelector(".more-content");
+
+    if (!content) {
+        return;
+    }
+
+    if (content.style.display === "block") {
+
+        content.style.display = "none";
+        e.target.textContent = "Mehr lesen";
+
+    } else {
+
+        content.style.display = "block";
+        e.target.textContent = "Weniger lesen";
+    }
+});
+
+var elementIDs = ["dots", "more", "myBtn"];
+
+// Umschalten der Elemente mit den angegebenen IDs
+toggleElements(elementIDs);
+
+// Definition der Funktion zum Umschalten der Elemente
+function toggleElements(ids) {
+    // Durchlaufen der ID-Liste
+    ids.forEach(function (id) {
+        // Abrufen des Elements anhand seiner ID
+        var element = document.getElementById(id);
+        // Überprüfen, ob das Element gültig ist
+        if (element) {
+            // Toggle the display of the element
+            if (window.getComputedStyle(element).display === "none") {
+                element.style.display = "inline"; // Ändern Sie "inline" in den entsprechenden Anzeigewert
             } else {
-                console.error("Element with ID '" + id + "' not found.");
+                element.style.display = "none";
             }
+        } else {
+            console.error("Element with ID '" + id + "' not found."); // Error handling, wenn das Element nicht gefunden wird
         }
-        // JavaScript-Funktion zum Umschalten der Elemente
+    });
+}
+function toggleElement(id) {
+    var elements = document.getElementsByClassName("toggle-element");
+    var elementToShow = document.getElementById(id);
+    if (elementToShow) {
+        if (elementToShow.style.display !== "inline") {
+            // Hide all elements
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "none";
+            }
+            // Show the clicked element
+            elementToShow.style.display = "inline";
+        }
+    } else {
+        console.error("Element with ID '" + id + "' not found.");
+    }
+}
+// JavaScript-Funktion zum Umschalten der Elemente
 
 
 const searchInput = document.getElementById('searchInput');
@@ -306,7 +355,7 @@ function carousel() {
 
 carousel();
 
-        
+
 
 async function ladeEinrichtungen() {
 
@@ -330,7 +379,6 @@ async function ladeEinrichtungen() {
     document.getElementById("migrationsdiensteContainer")?.replaceChildren();
     document.getElementById("psychologischeberatungenContainer")?.replaceChildren();
     document.getElementById("freizeitContainer")?.replaceChildren();
-            document.getElementById("jugendContainer")?.replaceChildren();
 
     data.forEach(einrichtung => {
 
@@ -370,10 +418,6 @@ async function ladeEinrichtungen() {
                 bereich = document.getElementById("freizeitContainer");
                 break;
 
-             case "Jugendmigrationsdienste":
-                bereich = document.getElementById("jugendContainer");
-                break;
-
             default:
                 return;
         }
@@ -385,7 +429,7 @@ async function ladeEinrichtungen() {
         karte.className = 'card border border-danger h-100';
 
         const inhalt = document.createElement('div');
-        inhalt.className = 'card-body';
+        inhalt.className = 'more-content';
 
         inhalt.innerHTML = `
             <h3>${einrichtung.name || ''}</h3>
