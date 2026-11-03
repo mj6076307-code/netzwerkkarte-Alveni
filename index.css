@@ -1,9 +1,12 @@
          /* CSS für die Elemente, die umgeschaltet werden sollen */
-        .toggle-element {
-            display: none;
-            /* Startzustand: unsichtbar */
-        }
-    
+       
+        .more-content {
+    display: none;
+}
+    .more-content.open {
+    display: block;
+}
+
         ul {
             margin: 0;
             padding: 0;
@@ -90,97 +93,20 @@
             text-align: center;
             text-align: -webkit-center;
             height: auto;
+            font-size: small;
+            font-family: 'Times New Roman', Times, serif;
+            border:3px solid #dc3545!important
         }
 
 
-        .card-text {
+        .card-text, .card-text:last-child{
             text-align: center;
+            font-size: small;
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 6px;
         }
 
-
-        #myBtn,
-        #myBtn1,
-        #myBtn2,
-        #myBtn3,
-        #myBtn3,
-        #myBtn4,
-        #myBtn5,
-        #myBtn6,
-        #myBtn7,
-        #myBtn8,
-        #myBtn9,
-        #myBtn10,
-        #myBtn11,
-        #myBtn12,
-        #myBtn13,
-        #myBtn14,
-        #myBtn15,
-        #myBtn16,
-        #myBtn17,
-        #myBtn18,
-        #myBtn19,
-        #myBtn20,
-        #myBtn21,
-        #myBtn22,
-        #myBtn23,
-        #myBtn24,
-        #myBtn25,
-        #myBtn26,
-        #myBtn27,
-        #myBtn28,
-        #myBtn29,
-        #myBtn30,
-        #myBtn31,
-        #myBtn33,
-        #myBtn34,
-        #myBtn35,
-        #myBtn36,
-        #myBtn37,
-        #myBtn38,
-        #myBtn39,
-        #myBtn40,
-        #myBtn41,
-        #myBtn42,
-        #myBtn43,
-        #myBtn44,
-        #myBtn45,
-        #myBtn46,
-        #myBtn47,
-        #myBtn48,
-        #myBtn49,
-        #myBtn499,
-        #myBtn498,
-        #myBtn497,
-        #myBtn496,
-        #myBtn495,
-        #myBtn494,
-        #myBtn493,
-        #myBtn492,
-        #myBtn50,
-        #myBtn51,
-        #myBtn52,
-        #myBtn53,
-        #myBtn54,
-        #myBtn55,
-        #myBtn56,
-        #myBtn57,
-        #myBtn58,
-        #myBtn59,
-        #myBtn60,
-        #myBtn61,
-        #myBtn62,
-        #myBtn63,
-        #myBtn64,
-        #myBtn65,
-        #myBtn66,
-        #myBtn67,
-        #myBtn68,
-        #myBtn69,
-        #myBtn70,
-        #myBtn71,
-        #myBtn141,
-        #myBtn111,
-        #myBtn344 button#MyBtn {
+        #myBtn, button#myBtn {
             margin-bottom: 2px;
         }
 
@@ -189,14 +115,29 @@
         }
 
         div#menuall1 .col {
-            width: 100%;
-            max-width: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+                width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 12px 10px;
+    margin: 14px 9px;
+    max-width: 300px;
+    background: #dc3545;
         }
+        
+        
+    .mehr-btn {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    background: red;
+    font-size: 16px;
+}
 
-        button#MyBtn {
+        button#myBtn {
             color: white;
             /* Textfarbe des Buttons */
             padding: 10px 20px;
@@ -221,21 +162,81 @@
             div#b4,
             div#b5,
             div#b6,
-            div#b101, div#b102,
-            div#b9 {
+            div#b101,
+            div#b9, div#b102 {
                 padding: 12px 10px;
                 margin: 14px 9px;
                 max-width: 300px;
             }
 
         }
+#myDiv3 .ruekerhilfe6 .row {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+#myDiv3 .ruekerhilfe6 .row > .col {
+    flex: 0 0 25%;
+    max-width: 25%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#myDiv3 .ruekerhilfe6 .card {
+    height: 100%;
+}
+
+/* Tablet: maximal 2 Karten pro Reihe */
+@media (max-width: 991px) {
+    #myDiv3 .ruekerhilfe6 .row > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* Handy: 1 Karte pro Reihe */
+@media (max-width: 575px) {
+    #myDiv3 .ruekerhilfe6 .row > .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+#myDiv5 .ruekerhilfe9 .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#myDiv5 .ruekerhilfe9 .row > .col {
+    flex: 0 0 25%;
+    max-width: 25%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#myDiv5 .ruekerhilfe9 .card {
+    height: 100%;
+}
+
+@media (max-width: 991px) {
+    #myDiv5 .ruekerhilfe9 .row > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 575px) {
+    #myDiv5 .ruekerhilfe9 .row > .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
         input#searchInput {
             margin-left: 37%;
         }
 
-        .card-body {
-            font-size: 14px;
+        .more-content {
+            font-size: 12px;
         }
 
         .container {
@@ -269,95 +270,17 @@
         }
 
         #myDiv,
-        #more,
-        #more1,
-        #more2,
-        #more3,
-        #more4,
-        #more5,
-        #more6,
-        #more7,
-        #more8,
-        #more9,
-        #more10,
-        #more11,
-        #more12,
-        #more13,
-        #more14,
-        #more15,
-        #more16,
-        #more17,
-        #more18,
-        #more19,
-        #more20,
-        #more21,
-        #more22,
-        #more23,
-        #more24,
-        #more25,
-        #more26,
-        #more27,
-        #more28,
-        #more29,
-        #more30,
-        #more31,
-        #more32,
-        #more33,
-        #more34,
-        #more35,
-        #more36,
-        #more37,
-        #more38,
-        #more39,
-        #more40,
-        #more41,
-        #more42,
-        #more43,
-        #more44,
-        #more45,
-        #more46,
-        #more47,
-        #more48,
-        #more49,
-        #more499,
-        #more498,
-        #more497,
-        #more496 #more50,
-        #more51,
-        #more52,
-        #more53,
-        #more54,
-        #more55,
-        #more56,
-        #more57,
-        #more58,
-        #more59,
-        #more60,
-        #more61,
-        #more62,
-        #more63,
-        #more64,
-        #more65,
-        #more67,
-        #more68,
-        #more69,
-        #more70,
-        #more71,
-        #more73,
-        #more141,
-        #more111,
-        #more344 {
+        #more {
             display: none;
-
         }
 
 
-        h1 {
+       /* h1 {
             text-align: center;
             hyphenate-character: revert;
             text-transform: uppercase;
             margin-top: 5%;
-        }
+        }*/
 
         #myDiv1,
         #myDiv2,
@@ -368,8 +291,8 @@
         #myDiv8,
         #myDiv9,
         #myDiv5,
-        #myDiv10, #myDiv12,
-        #myDiv11 {
+        #myDiv10,
+        #myDiv11,#myDiv12 {
             display: none;
         }
 
@@ -379,7 +302,7 @@
 
 
         /* On mouse-over, add a deeper shadow */
-        #first card border border-danger:hover {
+        #first .card border border-danger:hover {
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         }
 
@@ -469,9 +392,7 @@
         a#b91,
         a#b991,
         a#b9991,
-        a#b101 {
-
-            width: 250px;
+        a#b101, a#b102 {
             white-space: break-spaces !important;
             height: 75px;
             line-height: aut0;
@@ -505,17 +426,17 @@
         div#b5,
         div#b6,
         div#b7,
-        div#b101,  div#b102{
+        div#b101 , div#b102{
             padding: 5px 10px;
         }
 
-        h2 {
+        h3 {
             display: block;
             margin: 15px;
             padding: 15px 0px;
             font-weight: 700;
             font-weight: bolder;
-            text-align: justify;
+            text-align: center;
         }
 
         /*<!--Style Test-->*/
