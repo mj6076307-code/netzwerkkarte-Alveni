@@ -330,6 +330,7 @@ async function ladeEinrichtungen() {
     document.getElementById("migrationsdiensteContainer")?.replaceChildren();
     document.getElementById("psychologischeberatungenContainer")?.replaceChildren();
     document.getElementById("freizeitContainer")?.replaceChildren();
+            document.getElementById("jugendContainer")?.replaceChildren();
 
     data.forEach(einrichtung => {
 
@@ -367,6 +368,10 @@ async function ladeEinrichtungen() {
 
             case "Freizeit und Gemeinschaft":
                 bereich = document.getElementById("freizeitContainer");
+                break;
+
+             case "Jugendmigrationsdienste":
+                bereich = document.getElementById("jugendContainer");
                 break;
 
             default:
