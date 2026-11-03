@@ -83,6 +83,19 @@ function myFunction() {
                 x.style.display = "block";
             }
         }
+     function myFunctionAnker12() {
+            var element = document.getElementById("myDiv12");
+            element.classList.toggle("Anker");
+        }
+        function myFunctionAnker12() {
+            var x = document.getElementById("myDiv12");
+            x.style.margin = "8% 0 0% 0";
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
         function myFunctionAnker3() {
             var element = document.getElementById("myDiv7");
             element.classList.toggle("Anker7");
