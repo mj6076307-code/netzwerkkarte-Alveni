@@ -7,7 +7,9 @@
          .more-content.open {
              display: block;
          }
-
+         div#menuall1 .col{
+         text-align: center;
+         }
        
          .ul {
              margin: 0;
