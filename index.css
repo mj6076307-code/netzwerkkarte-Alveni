@@ -1,5 +1,9 @@
          /* CSS für die Elemente, die umgeschaltet werden sollen */
 
+[id^="myDiv"] {
+    scroll-margin-top: 90px;
+}
+
          .more-content {
              display: none;
          }
