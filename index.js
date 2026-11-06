@@ -1,3 +1,49 @@
+function oeffneMenubereich(button) {
+
+    const ziel = button.getAttribute("href");
+    const bereich = document.querySelector(ziel);
+
+    if (!bereich) return;
+
+    // Alle Menü-Sections schließen
+    document.querySelectorAll("#menuall1 .menu-btn").forEach(btn => {
+
+        const section = document.querySelector(btn.getAttribute("href"));
+
+        if (section) {
+            section.style.display = "none";
+            section.classList.remove("menu-open");
+        }
+
+    });
+
+    // Ausgewählte Section öffnen
+    bereich.style.display = "block";
+    bereich.classList.add("menu-open");
+
+    // Automatisch und flüssig scrollen
+    setTimeout(() => {
+        bereich.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 100);
+}
+
+
+// Menü-Klicks
+document.querySelectorAll("#menuall1 .menu-btn").forEach(button => {
+
+    button.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        oeffneMenubereich(this);
+
+    });
+
+});
+
 function myFunction() {
     var element = document.getElementById("myDiv");
     element.classList.toggle("Anker");
