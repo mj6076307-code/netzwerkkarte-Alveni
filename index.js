@@ -1,3 +1,18 @@
+//Menü klickbar toggle
+
+
+document.querySelectorAll("#menuall1 .menu-btn").forEach(button => {
+    button.addEventListener("click", function () {
+
+        document.querySelectorAll("#menuall1 .menu-btn")
+            .forEach(btn => btn.classList.remove("active"));
+
+        this.classList.add("active");
+    });
+});
+
+
+
 function oeffneMenubereich(button) {
 
     const ziel = button.getAttribute("href");
@@ -43,6 +58,7 @@ document.querySelectorAll("#menuall1 .menu-btn").forEach(button => {
     });
 
 });
+
 
 function myFunction() {
     var element = document.getElementById("myDiv");
@@ -255,13 +271,6 @@ function myFunction(button) {
     bereich.style.display = istOffen ? "none" : "block";
 }
 
-document.querySelectorAll("#menuall1 .menu-btn").forEach(button => {
-    button.addEventListener("click", function (event) {
-        event.preventDefault();
-        myFunction(this);
-    });
-});
-
 
 function myInfotheck() {
     var menuall1 = document.getElementById("menuall1");
@@ -291,32 +300,10 @@ function myInfotheck1() {
     }
 }
 
-function oeffneMenubereich(button) {
-    const ziel = button.getAttribute("href");
-    const bereich = document.querySelector(ziel);
 
-    if (!bereich) return;
-
-    // Section sichtbar machen
-    bereich.style.display = "block";
-    bereich.classList.add("menu-open");
-
-    // Automatisch zur Section scrollen
-    setTimeout(() => {
-        bereich.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }, 100);
-}
 
 // Menü-Klicks
-document.querySelectorAll("#menuall1 .menu-btn").forEach(button => {
-    button.addEventListener("click", function (event) {
-        event.preventDefault();
-        oeffneMenubereich(this);
-    });
-});
+
 
 document.addEventListener("click", function (e) {
 
