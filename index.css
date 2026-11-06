@@ -3,15 +3,337 @@
 [id^="myDiv"] {
     scroll-margin-top: 90px;
 }
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
 
 .row > .col {
     flex: 0 0 25%;
     max-width: 25%;
 }
+
+@media (max-width: 991px) {
+    .row > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .row > .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+/* =================================
+   EINHEITLICHES MENÜ
+================================= */
+
+#menuall1 .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+#menuall1 .col {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Bilder */
+#menuall1 .img-menu {
+    width: 100%;
+    height: 155px;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+#menuall1 .img-menu img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Menü-Buttons */
+#menuall1 .menu-btn {
+    width: 100%;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    border-radius: 0 0 8px 8px;
+    padding: 10px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+/* Hover */
+#menuall1 .menu-btn:hover {
+    filter: brightness(0.9);
+}
+
+/* Aktiver Menüpunkt */
+#menuall1 .menu-btn.active {
+    background-color: #2563eb !important;
+    border-color: #1d4ed8 !important;
+    color: white !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Tablet: 2 Spalten */
+@media (max-width: 991px) {
+    #menuall1 .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* Smartphone: 1 Spalte */
+@media (max-width: 576px) {
+    #menuall1 .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    #menuall1 .img-menu {
+        height: 180px;
+    }
+}
+/* Automatisches Menü-Layout */
+#menuall1 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Einzelne Menü-Kategorie */
+#menuall1 .col {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bilder */
+#menuall1 .img-menu {
+    width: 100%;
+    height: 155px;
+    overflow: hidden;
+}
+
+#menuall1 .img-menu img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Buttons */
+#menuall1 .menu-btn {
+    width: 100%;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    #menuall1 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Smartphone */
+@media (max-width: 576px) {
+    #menuall1 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+/* Hauptcontainer */
+.Anker11 {
+    width: 100%;
+}
+
+/* Automatisches Kartenlayout */
+.Anker11 #sozialeberatungContainer {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Einzelne Spalten */
+.Anker11 #sozialeberatungContainer .col {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+.Anker11 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.Anker11 > h3 {
+    grid-column: 1 / -1;
+}
+
+.Anker11 > .col {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.Anker11 .card {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Hauptbereich */
+.Anker10 {
+    width: 100%;
+}
+
+/* Überschrift über die gesamte Breite */
+.Anker10 > h3 {
+    width: 100%;
+}
+
+/* Übersicht der Sozialbürgerhäuser */
+
+
+/* Telefonliste */
+ .Anker10 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 35px;
+}
+/* SBH-Übersicht */
+.sbh-uebersicht {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.sbh-uebersicht .col {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.sbh-uebersicht .card {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Telefonliste */
+.sbh-telefon-headline {
+    margin-top: 35px;
+}
+
+.sbh-telefonliste {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.sbh-telefonliste .col {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.sbh-bereich {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+}
+
+.sbh-bereich table {
+    width: 100%;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .sbh-uebersicht {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sbh-telefonliste {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Smartphone */
+@media (max-width: 576px) {
+    .sbh-uebersicht,
+    .sbh-telefonliste {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Tablet */
+@media (max-width: 991px) {
+    .sbh-uebersicht, .Anker10{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Smartphone */
+@media (max-width: 576px) {
+    .sbh-uebersicht,
+    .sbh-telefonliste {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 991px) {
+    .Anker11 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .Anker11 {
+        grid-template-columns: 1fr;
+    }
+}
+
+
          .more-content {
              display: none;
          }
