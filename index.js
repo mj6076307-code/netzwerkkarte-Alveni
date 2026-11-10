@@ -171,19 +171,19 @@ function myFunctionAnker6() {
         x.style.display = "block";
     }
 }
-function myFunctionAnker8() {
-    var element = document.getElementById("myDiv8");
-    element.classList.toggle("Anker8");
-}
-function myFunctionAnker8() {
-    var x = document.getElementById("myDiv8");
-    x.style.margin = "8% 0 0% 0";
-    if (x.style.display === "block") {
-        x.style.display = "none";
+ function myFunction14() {
+     var element = document.getElementById("myDiv14");
+     element.classList.toggle("Anker14");
+ }
+ function myFunction14() {
+     var x = document.getElementById("myDiv14");
+     x.style.margin = "8% 0 0% 0";
+     if (x.style.display === "block") {
+         x.style.display = "none";
     } else {
-        x.style.display = "block";
+         x.style.display = "block";
 
-    }
+     }
 }
 function myFunctionAnker5() {
     var element = document.getElementById("myDiv9");
@@ -199,12 +199,12 @@ function myFunctionAnker5() {
 
     }
 }
-function myFunctionAnker9() {
-    var element = document.getElementById("myDiv9");
-    element.classList.toggle("Anker9");
+function myFunctionAnker10() {
+    var element = document.getElementById("myDiv10");
+    element.classList.toggle("Anker10");
 }
-function myFunctionAnker9() {
-    var x = document.getElementById("myDiv9");
+function myFunctionAnker10() {
+    var x = document.getElementById("myDiv10");
     x.style.margin = "8% 0 0% 0";
     if (x.style.display === "block") {
         x.style.display = "none";
@@ -227,20 +227,19 @@ function myFunctionAnker11() {
 
     }
 }
-function myFunctionAnker8() {
-    var element = document.getElementById("myDiv8");
-    element.classList.toggle("Anker8");
-}
-function myFunctionAnker8() {
-    var x = document.getElementById("myDiv8");
+ function myFunction13() {
+    var element = document.getElementById("myDiv13");
+    element.classList.toggle("Anker13");
+ }
+function myFunctionAnker13() {
+    var x = document.getElementById("myDiv13");
     x.style.margin = "8% 0 0% 0";
     if (x.style.display === "block") {
         x.style.display = "none";
     } else {
         x.style.display = "block";
 
-    }
-}
+} }
 
 function myFunction12() {
     var element = document.getElementById("myDiv12");
@@ -256,8 +255,6 @@ function myFunctionAnker8() {
 
     }
 }
-
-
 
 function myFunction(button) {
     const ziel = button.getAttribute("href");
@@ -440,6 +437,10 @@ async function ladeEinrichtungen() {
     document.getElementById("psychologischeberatungenContainer")?.replaceChildren();
     document.getElementById("freizeitContainer")?.replaceChildren();
     document.getElementById("jungenmenschenContainer")?.replaceChildren();
+    document.getElementById("asylverfahrensberatung")?.replaceChildren();
+    document.getElementById("Beratung für Menschen außerhalb Deutschlands")?.replaceChildren();
+    document.getElementById("Beratung zur Einbürgerung")?.replaceChildren();
+    document.getElementById("Rentenberatung")?.replaceChildren();
 
     data.forEach(einrichtung => {
 
