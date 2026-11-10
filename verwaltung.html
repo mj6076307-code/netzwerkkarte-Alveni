@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
 <title>Netzwerkkarte – Verwaltung</title>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -39,6 +40,10 @@ button{
     cursor:pointer;
 }
 
+button:hover{
+    background:#125469;
+}
+
 .eintrag{
     background:white;
     padding:12px;
@@ -46,12 +51,21 @@ button{
     border-radius:6px;
     border:1px solid #ddd;
 }
+
+.logo{
+    max-width:150px;
+    max-height:80px;
+    object-fit:contain;
+    display:block;
+    margin:10px 0;
+}
 </style>
 </head>
 
 <body>
 
 <h1>Netzwerkkarte verwalten</h1>
+
 <form id="formular">
 
 <label>Name der Einrichtung *</label>
@@ -69,48 +83,49 @@ button{
     <option>Migrationsberatung</option>
     <option>Psychologische Beratungsstellen</option>
     <option>Sozialbürgerhäuser</option>
-    <option>Beratung für jungen Menschen</option>
+    <option>Beratung für junge Menschen</option>
     <option>Sonstiges</option>
 </select>
 
 <label>Adresse</label>
 <input id="adresse">
-    
-<label>Logo-URL</label>
-<input id="image" type="url" placeholder="https://beispiel.de/logo.png">
-    
+
+<label>Logo (Bild-URL)</label>
+<input
+    id="image"
+    type="url"
+    placeholder="https://beispiel.de/logo.png">
+
 <label>Telefon</label>
-<input id="telefon">
+<input id="telefon" type="tel">
 
 <label>E-Mail</label>
 <input id="email" type="email">
 
 <label>Website</label>
-<input id="website">
+<input id="website" type="url">
 
 <label>Beschreibung</label>
 <textarea id="beschreibung" rows="5"></textarea>
 
 <button type="submit">
-Einrichtung speichern
+    Einrichtung speichern
 </button>
 
 </form>
 
 <h2>Gespeicherte Einrichtungen</h2>
+
 <div id="liste"></div>
-
-
 
 <script>
 
 const supabaseClient = window.supabase.createClient(
     "https://avayaffhlnxwwlbkgqna.supabase.co",
-    "sb_publishable_HrVqS9DiHDnaOghbUNktQA_o5DbprHe"
+    "DEIN_PUBLISHABLE_KEY"
 );
 
 const formular = document.getElementById("formular");
-
 
 formular.addEventListener("submit", async (event) => {
 
@@ -127,9 +142,6 @@ formular.addEventListener("submit", async (event) => {
         beschreibung: document.getElementById("beschreibung").value
     };
 
-    alert(JSON.stringify(eintrag));
-
-
     const { error } = await supabaseClient
         .from("einrichtungen")
         .insert([eintrag]);
@@ -139,6 +151,7 @@ formular.addEventListener("submit", async (event) => {
         console.error(error);
         return;
     }
+
     alert("Einrichtung erfolgreich gespeichert.");
 
     formular.reset();
@@ -167,11 +180,22 @@ async function ladeEinrichtungen() {
 
         div.innerHTML = `
             <h3>${e.name || ""}</h3>
+
+            ${
+                e.image
+                ? `<img src="${e.image}" alt="${e.name}" class="logo">`
+                : ""
+            }
+
             <p><strong>Kategorie:</strong> ${e.kategorie || ""}</p>
             <p><strong>Adresse:</strong> ${e.adresse || ""}</p>
             <p><strong>Telefon:</strong> ${e.telefon || ""}</p>
             <p><strong>E-Mail:</strong> ${e.email || ""}</p>
-            <p><strong>Website:</strong> ${e.website || ""}</p>
+            <p><strong>Website:</strong> ${
+                e.website
+                ? `<a href="${e.website}" target="_blank">${e.website}</a>`
+                : ""
+            }</p>
             <p>${e.beschreibung || ""}</p>
         `;
 
