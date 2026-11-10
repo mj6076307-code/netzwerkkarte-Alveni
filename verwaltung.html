@@ -75,8 +75,10 @@ button{
 
 <label>Adresse</label>
 <input id="adresse">
+    
 <label>Image</label>
 <input type="file" id="imageFile" capture="user" accept="image/*" >
+    
 <label>Telefon</label>
 <input id="telefon">
 
@@ -117,6 +119,7 @@ formular.addEventListener("submit", async (event) => {
     const eintrag = {
         name: document.getElementById("name").value,
         kategorie: document.getElementById("kategorie").value,
+        image:document.getElementById("img").value,
         adresse: document.getElementById("adresse").value,
         telefon: document.getElementById("telefon").value,
         email: document.getElementById("email").value,
