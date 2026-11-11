@@ -31,12 +31,24 @@
          /* Gleiche Kartenhöhe */
          .Anker7 .col,
          .Anker11 .col,
-         .Anker .col {
-             display: inline-flex;
-             width: calc(25% - 24px);
-             margin: 12px;
-             vertical-align: top;
-             box-sizing: border-box;
+         .Anker .col,
+         .Anker1 .col,
+         .Anker2 .col,
+         .Anker3 .col,
+         .Anker4 .col,
+         .Anker5 .col,
+         .Anker6 .col,
+         .Anker7 .col,
+         .Anker8 .col,
+         .Anker9 .col,
+         .Anker10 .col,
+         .Anker12 .col, .Anker13 .col, .Anker14 .col
+         {
+         display: inline-flex;
+         width: calc(25% - 24px);
+         margin: 12px;
+         vertical-align: top;
+         box-sizing: border-box;
          }
 
 
@@ -320,27 +332,16 @@
          }
 
          /* Hauptbereich */
-         .Anker10 {
-             width: 100%;
-         }
+       
 
          /* Überschrift über die gesamte Breite */
-         .Anker10>h3 {
-             width: 100%;
-         }
+         
 
          /* Übersicht der Sozialbürgerhäuser */
 
 
          /* Telefonliste */
-         .Anker10 {
-             display: grid;
-             grid-template-columns: repeat(3, minmax(0, 1fr));
-             gap: 20px;
-             width: 100%;
-             margin-top: 35px;
-         }
-
+         
          /* SBH-Übersicht */
          .sbh-uebersicht {
              display: grid;
@@ -418,8 +419,7 @@
          /* Tablet */
          @media (max-width: 991px) {
 
-             .sbh-uebersicht,
-             .Anker10 {
+             .sbh-uebersicht {
                  grid-template-columns: repeat(2, minmax(0, 1fr));
              }
          }
