@@ -442,76 +442,136 @@ async function ladeEinrichtungen() {
     document.getElementById("Beratung zur Einbürgerung")?.replaceChildren();
     document.getElementById("Rentenberatung")?.replaceChildren();
 
-    data.forEach(einrichtung => {
+   data.forEach(einrichtung => {
 
-        let bereich;
+    let bereich;
 
-        switch (einrichtung.kategorie) {
+    switch (einrichtung.kategorie) {
 
-            case "Rechtsberatung":
-                bereich = document.getElementById("rechtsberatungContainer");
-                break;
-            case "Beratungsstellen für junge Menschen":
-                bereich = document.getElementById("jungenmenschenContainer");
-                break;
+        case "Rechtsberatung":
+            bereich = document.getElementById("rechtsberatungContainer");
+            break;
 
-            case "Schuldnerberatung":
-                bereich = document.getElementById("schuldnerberatungContainer");
-                break;
+        case "Schuldnerberatung":
+            bereich = document.getElementById("schuldnerberatungContainer");
+            break;
 
-            case "Medizin":
-                bereich = document.getElementById("medizinContainer");
-                break;
+        case "Medizin":
+            bereich = document.getElementById("medizinContainer");
+            break;
 
-            case "Wohnungslosenhilfe":
-                bereich = document.getElementById("wohnungslosenhilfeContainer");
-                break;
+        case "Wohnungslosenhilfe":
+            bereich = document.getElementById("wohnungslosenhilfeContainer");
+            break;
 
-            case "Formularhilfe":
-                bereich = document.getElementById("formularhilfeContainer");
-                break;
+        case "Formularhilfe":
+            bereich = document.getElementById("formularhilfeContainer");
+            break;
 
-            case "Migrationsberatung":
-                bereich = document.getElementById("migrationsdiensteContainer");
-                break;
+        case "Migrationsberatung":
+            bereich = document.getElementById("migrationsdiensteContainer");
+            break;
 
-            case "Psychologische Beratungsstellen":
-                bereich = document.getElementById("psychologischeberatungenContainer");
-                break;
+        case "Psychologische Beratungsstellen":
+            bereich = document.getElementById("psychologischeberatungenContainer");
+            break;
 
-            case "Freizeit und Gemeinschaft":
-                bereich = document.getElementById("freizeitContainer");
-                break;
+        case "Freizeit und Gemeinschaft":
+            bereich = document.getElementById("freizeitContainer");
+            break;
 
-            default:
-                return;
-        }
+        case "Beratung für junge Menschen":
+            bereich = document.getElementById("jungenmenschenContainer");
+            break;
 
-        const spalte = document.createElement('div');
-        spalte.className = 'col-md-6 col-lg-4 mb-3';
+        case "Asylverfahrensberatung":
+            bereich = document.getElementById("asylverfahrensberatungContainer");
+            break;
 
-        const karte = document.createElement('div');
-        karte.className = 'card border border-danger h-100';
+        case "Beratung für Menschen außerhalb Deutschlands":
+            bereich = document.getElementById("menschenausserhalbdeutschlandsContainer");
+            break;
 
-        const inhalt = document.createElement('div');
-        inhalt.className = 'more-content';
+        case "Beratung zur Einbürgerung":
+            bereich = document.getElementById("einbuergerungContainer");
+            break;
 
-        inhalt.innerHTML = `
-            <h3>${einrichtung.name || ''}</h3>
-            <p><strong>Adresse:</strong> ${einrichtung.adresse || ''}</p>
-            ${einrichtung.telefon ? `<p>${einrichtung.telefon}</p>` : ''}
-            ${einrichtung.email ? `<p>${einrichtung.email}</p>` : ''}
-            ${einrichtung.website ? `<a href="${einrichtung.website}" target="_blank">Website öffnen</a>` : ''}
-            ${einrichtung.beschreibung ? `<p>${einrichtung.beschreibung}</p>` : ''}
-        `;
+        case "Rentenberatung":
+            bereich = document.getElementById("rentenberatungContainer");
+            break;
 
-        karte.appendChild(inhalt);
-        spalte.appendChild(karte);
+        case "Beratung für Menschen, die bereits länger als fünf Jahre in Deutschland leben":
+            bereich = document.getElementById("langfristigedeutschlandContainer");
+            break;
 
-        if (bereich) {
-            bereich.appendChild(spalte);
-        }
-    });
+        case "Sozialbürgerhäuser":
+            bereich = document.getElementById("sozialbuergerhaeuserContainer");
+            break;
+
+        case "Sprachkurse und Weiterbildung":
+            bereich = document.getElementById("sprachkurseContainer");
+            break;
+
+        case "Soziale Beratungen der Caritas":
+            bereich = document.getElementById("sozialeberatungenContainer");
+            break;
+
+        case "Sonstiges":
+            bereich = document.getElementById("sonstigesContainer");
+            break;
+
+        default:
+            console.log(
+                "Kategorie nicht gefunden:",
+                einrichtung.kategorie
+            );
+            return;
+    }
+
+    console.log(
+        einrichtung.name,
+        einrichtung.kategorie,
+        bereich
+    );
+
+    if (!bereich) {
+        console.error(
+            "Container nicht gefunden:",
+            einrichtung.kategorie
+        );
+        return;
+    }
+
+    const spalte = document.createElement("div");
+    spalte.className = "col-md-6 col-lg-4 mb-3";
+
+    const karte = document.createElement("div");
+    karte.className = "card border border-danger h-100";
+
+    const inhalt = document.createElement("div");
+    inhalt.className = "card-body";
+
+    inhalt.innerHTML = `
+        <h3>${einrichtung.name || ""}</h3>
+
+        <p>
+            <strong>Adresse:</strong>
+            ${einrichtung.adresse || ""}
+        </p>
+
+        ${einrichtung.telefon ? `<p>${einrichtung.telefon}</p>` : ""}
+        ${einrichtung.email ? `<p>${einrichtung.email}</p>` : ""}
+        ${einrichtung.website ? `<a href="${einrichtung.website}" target="_blank">Website öffnen</a>` : ""}
+        ${einrichtung.beschreibung ? `<p>${einrichtung.beschreibung}</p>` : ""}
+    `;
+
+    karte.appendChild(inhalt);
+    spalte.appendChild(karte);
+
+    bereich.appendChild(spalte);
+
+});
+
 
     console.log('Einrichtungen geladen:', data.length);
 }
