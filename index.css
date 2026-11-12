@@ -9,12 +9,7 @@
              max-width: 25%;
          }
 
-         @media (max-width: 991px) {
-             .row>.col {
-                 flex: 0 0 50%;
-                 max-width: 50%;
-             }
-         }
+         
 
          @media (max-width: 576px) {
              .row>.col {
@@ -23,32 +18,61 @@
              }
          }
 
+         @media (max-width: 576px) {
+
+             .Anker7 .col,
+             .Anker11 .col,
+             .Anker .col,
+             .Anker1 .col,
+             .Anker2 .col,
+             .Anker3 .col,
+             .Anker4 .col,
+             .Anker5 .col,
+             .Anker6 .col,
+             .Anker7 .col,
+             .Anker8 .col,
+             .Anker9 .col,
+             .Anker10 .col,
+             .Anker12 .col,
+             .Anker13 .col,
+             .Anker14 .col {
+                 display: inline-flex;
+                 width: calc(100% - 14px);
+                 margin: 12px;
+                 vertical-align: top;
+                 box-sizing: border-box;
+             }
+         }
 
          p.migra {
              padding: 5px 30px;
          }
 
          /* Gleiche Kartenhöhe */
-         .Anker7 .col,
-         .Anker11 .col,
-         .Anker .col,
-         .Anker1 .col,
-         .Anker2 .col,
-         .Anker3 .col,
-         .Anker4 .col,
-         .Anker5 .col,
-         .Anker6 .col,
-         .Anker7 .col,
-         .Anker8 .col,
-         .Anker9 .col,
-         .Anker10 .col,
-         .Anker12 .col, .Anker13 .col, .Anker14 .col
-         {
-         display: inline-flex;
-         width: calc(25% - 24px);
-         margin: 12px;
-         vertical-align: top;
-         box-sizing: border-box;
+         @media (min-width: 991px) {
+
+             .Anker7 .col,
+             .Anker11 .col,
+             .Anker .col,
+             .Anker1 .col,
+             .Anker2 .col,
+             .Anker3 .col,
+             .Anker4 .col,
+             .Anker5 .col,
+             .Anker6 .col,
+             .Anker7 .col,
+             .Anker8 .col,
+             .Anker9 .col,
+             .Anker10 .col,
+             .Anker12 .col,
+             .Anker13 .col,
+             .Anker14 .col {
+                 display: inline-flex;
+                 width: calc(25% - 14px);
+                 margin: 12px;
+                 vertical-align: top;
+                 box-sizing: border-box;
+             }
          }
 
 
@@ -86,6 +110,10 @@
          .Anker .card {
              background: #fff;
              border-top: 5px solid var(--caritas-red);
+         }
+
+         h3 {
+             color: var(--caritas-red);
          }
 
          .Anker7 .card h3,
@@ -332,16 +360,16 @@
          }
 
          /* Hauptbereich */
-       
+
 
          /* Überschrift über die gesamte Breite */
-         
+
 
          /* Übersicht der Sozialbürgerhäuser */
 
 
          /* Telefonliste */
-         
+
          /* SBH-Übersicht */
          .sbh-uebersicht {
              display: grid;
