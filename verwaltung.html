@@ -90,11 +90,11 @@ button:hover{
 <label>Adresse</label>
 <input id="adresse">
 
-<label>Logo (Bild-URL)</label>
+<!--<label>Logo (Bild-URL)</label>
 <input
     id="image"
     type="url"
-    placeholder="https://beispiel.de/logo.png">
+    placeholder="https://beispiel.de/logo.png">-->
 
 <label>Telefon</label>
 <input id="telefon" type="tel">
@@ -133,7 +133,7 @@ formular.addEventListener("submit", async (event) => {
     const eintrag = {
         name: document.getElementById("name").value,
         kategorie: document.getElementById("kategorie").value,
-        image: document.getElementById("image").value,
+        //image: document.getElementById("image").value,
         adresse: document.getElementById("adresse").value,
         telefon: document.getElementById("telefon").value,
         email: document.getElementById("email").value,
