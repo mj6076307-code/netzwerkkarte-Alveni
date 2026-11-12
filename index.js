@@ -441,7 +441,7 @@ async function ladeEinrichtungen() {
     document.getElementById("Beratung für Menschen außerhalb Deutschlands")?.replaceChildren();
     document.getElementById("Beratung zur Einbürgerung")?.replaceChildren();
     document.getElementById("Rentenberatung")?.replaceChildren();
-
+document.getElementById("Familienberatungsstellen")?.replaceChildren();
    data.forEach(einrichtung => {
 
     let bereich;
@@ -519,6 +519,10 @@ async function ladeEinrichtungen() {
         case "Sonstiges":
             bereich = document.getElementById("sonstigesContainer");
             break;
+ case "Sonstiges":
+            bereich = document.getElementById("familienberatungsstellenContainer");
+            break;
+
 
         default:
             console.log(
