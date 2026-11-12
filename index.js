@@ -480,7 +480,7 @@ async function ladeEinrichtungen() {
             bereich = document.getElementById("freizeitContainer");
             break;
 
-        case "Beratung für junge Menschen":
+        case "Beratung für jungen Menschen":
             bereich = document.getElementById("jungenmenschenContainer");
             break;
 
@@ -549,7 +549,7 @@ async function ladeEinrichtungen() {
     karte.className = "card border border-danger h-100";
 
     const inhalt = document.createElement("div");
-    inhalt.className = "card-body";
+    inhalt.className = "card-title";
 
     inhalt.innerHTML = `
         <h3>${einrichtung.name || ""}</h3>
