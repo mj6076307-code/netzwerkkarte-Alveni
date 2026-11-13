@@ -555,7 +555,7 @@ karte.className = "card border border-danger h-100";
 const inhalt = document.createElement("div");
 inhalt.className = "card-body d-flex flex-column";
 
-// Beschreibung sicher als Text einsetzen
+// Beschreibung
 const beschreibung = einrichtung.beschreibung || "";
 
 inhalt.innerHTML = `
@@ -595,19 +595,35 @@ inhalt.innerHTML = `
         </p>
     ` : ""}
 
-   <button type="button"
+    <button type="button"
         class="btn btn-outline-danger detailsbtn">
-    Mehr Details
-</button>
+        Mehr Details
+    </button>
 
-<div class="details-bereich mt-3" hidden>
-    <hr>
-    <h5>Beschreibung</h5>
-    <p class="beschreibung-text"></p>
-</div>
+    <div class="details-bereich mt-3" hidden>
+        <hr>
+        <h5>Beschreibung</h5>
+        <p class="beschreibung-text"></p>
+    </div>
 `;
 
-// Beschreibung als Text einsetzen
+// JETZT Logo hinzufügen
+if (einrichtung.image) {
+
+    const logo = document.createElement("img");
+
+    logo.src = einrichtung.image;
+    logo.alt = "Logo " + (einrichtung.name || "");
+    logo.className = "logo-einrichtung";
+
+    logo.onerror = function () {
+        this.style.display = "none";
+    };
+
+    inhalt.prepend(logo);
+}
+
+// Beschreibung einsetzen
 const beschreibungText =
     inhalt.querySelector(".beschreibung-text");
 
@@ -629,7 +645,6 @@ detailsBtn.addEventListener("click", function () {
     detailsBtn.textContent = istVersteckt
         ? "Weniger Details"
         : "Mehr Details";
-
 });
 
 // Button nur anzeigen, wenn Beschreibung vorhanden ist
@@ -639,8 +654,8 @@ if (!beschreibung.trim()) {
 
 karte.appendChild(inhalt);
 spalte.appendChild(karte);
-
 bereich.appendChild(spalte);
+
 
 
 });
