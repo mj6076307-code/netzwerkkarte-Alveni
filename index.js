@@ -547,7 +547,7 @@ document.getElementById("familienberatungsstellenContainer")?.replaceChildren();
     }
 
 const spalte = document.createElement("div");
-spalte.className = "col-md-6 col-lg-4 mb-3";
+spalte.className = "col-md-4 col-lg-4 mb-3";
 
 const karte = document.createElement("div");
 karte.className = "card border border-danger h-100";
