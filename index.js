@@ -546,33 +546,102 @@ document.getElementById("Familienberatungsstellen")?.replaceChildren();
         return;
     }
 
-    const spalte = document.createElement("div");
-    spalte.className = "col-md-6 col-lg-4 mb-3";
+const spalte = document.createElement("div");
+spalte.className = "col-md-6 col-lg-4 mb-3";
 
-    const karte = document.createElement("div");
-    karte.className = "card border border-danger h-100";
+const karte = document.createElement("div");
+karte.className = "card border border-danger h-100";
 
-    const inhalt = document.createElement("div");
-    inhalt.className = "card-title";
+const inhalt = document.createElement("div");
+inhalt.className = "card-body d-flex flex-column";
 
-    inhalt.innerHTML = `
-        <h3>${einrichtung.name || ""}</h3>
+// Beschreibung sicher als Text einsetzen
+const beschreibung = einrichtung.beschreibung || "";
 
+inhalt.innerHTML = `
+    <h3 class="card-title">
+        ${einrichtung.name || ""}
+    </h3>
+
+    <p>
+        <strong>Adresse:</strong><br>
+        ${einrichtung.adresse || ""}
+    </p>
+
+    ${einrichtung.telefon ? `
         <p>
-            <strong>Adresse:</strong>
-            ${einrichtung.adresse || ""}
+            <strong>Telefon:</strong><br>
+            ${einrichtung.telefon}
         </p>
+    ` : ""}
 
-        ${einrichtung.telefon ? `<p>${einrichtung.telefon}</p>` : ""}
-        ${einrichtung.email ? `<p>${einrichtung.email}</p>` : ""}
-        ${einrichtung.website ? `<a href="${einrichtung.website}" target="_blank">Website öffnen</a>` : ""}
-        ${einrichtung.beschreibung ? `<p>${einrichtung.beschreibung}</p>` : ""}
-    `;
+    ${einrichtung.email ? `
+        <p>
+            <strong>E-Mail:</strong><br>
+            <a href="mailto:${einrichtung.email}">
+                ${einrichtung.email}
+            </a>
+        </p>
+    ` : ""}
 
-    karte.appendChild(inhalt);
-    spalte.appendChild(karte);
+    ${einrichtung.website ? `
+        <p>
+            <strong>Website:</strong><br>
+            <a href="${einrichtung.website}"
+               target="_blank"
+               rel="noopener noreferrer">
+                Website öffnen
+            </a>
+        </p>
+    ` : ""}
 
-    bereich.appendChild(spalte);
+    <div class="details-bereich mt-2" hidden>
+        <hr>
+        <h5>Beschreibung</h5>
+        <p class="beschreibung-text"></p>
+    </div>
+
+    <button type="button"
+            class="btn btn-outline-danger detailsbtn">
+        Mehr Details
+    </button>
+`;
+
+// Beschreibung als Text einsetzen
+const beschreibungText =
+    inhalt.querySelector(".beschreibung-text");
+
+beschreibungText.textContent = beschreibung;
+
+// Button-Funktion
+const detailsBtn =
+    inhalt.querySelector(".detailsbtn");
+
+const detailsBereich =
+    inhalt.querySelector(".details-bereich");
+
+detailsBtn.addEventListener("click", function () {
+
+    const istVersteckt = detailsBereich.hidden;
+
+    detailsBereich.hidden = !istVersteckt;
+
+    detailsBtn.textContent = istVersteckt
+        ? "Weniger Details"
+        : "Mehr Details";
+
+});
+
+// Button nur anzeigen, wenn Beschreibung vorhanden ist
+if (!beschreibung.trim()) {
+    detailsBtn.remove();
+}
+
+karte.appendChild(inhalt);
+spalte.appendChild(karte);
+
+bereich.appendChild(spalte);
+
 
 });
 
