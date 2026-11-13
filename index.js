@@ -595,16 +595,16 @@ inhalt.innerHTML = `
         </p>
     ` : ""}
 
-    <div class="details-bereich mt-2" hidden>
-        <hr>
-        <h5>Beschreibung</h5>
-        <p class="beschreibung-text"></p>
-    </div>
+  <button type="button"
+        class="btn btn-outline-danger detailsbtn">
+    Mehr Details
+</button>
 
-    <button type="button"
-            class="btn btn-outline-danger detailsbtn">
-        Mehr Details
-    </button>
+<div class="details-bereich mt-3" hidden>
+    <hr>
+    <h5>Beschreibung</h5>
+    <p class="beschreibung-text"></p>
+</div>
 `;
 
 // Beschreibung als Text einsetzen
