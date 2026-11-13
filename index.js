@@ -437,11 +437,11 @@ async function ladeEinrichtungen() {
     document.getElementById("psychologischeberatungenContainer")?.replaceChildren();
     document.getElementById("freizeitContainer")?.replaceChildren();
     document.getElementById("jungenmenschenContainer")?.replaceChildren();
-    document.getElementById("asylverfahrensberatung")?.replaceChildren();
+    document.getElementById("asylverfahrensberatungContainer")?.replaceChildren();
     document.getElementById("Beratung für Menschen außerhalb Deutschlands")?.replaceChildren();
     document.getElementById("Beratung zur Einbürgerung")?.replaceChildren();
     document.getElementById("Rentenberatung")?.replaceChildren();
-document.getElementById("Familienberatungsstellen")?.replaceChildren();
+document.getElementById("familienberatungsstellenContainer")?.replaceChildren();
    data.forEach(einrichtung => {
 
     let bereich;
