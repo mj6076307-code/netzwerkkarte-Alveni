@@ -480,7 +480,7 @@ document.getElementById("Familienberatungsstellen")?.replaceChildren();
             bereich = document.getElementById("freizeitContainer");
             break;
 
-        case "Beratung für jungen Menschen":
+        case "Beratungsstellen für jungen Menschen":
             bereich = document.getElementById("jungenmenschenContainer");
             break;
 
@@ -519,7 +519,7 @@ document.getElementById("Familienberatungsstellen")?.replaceChildren();
         case "Sonstiges":
             bereich = document.getElementById("sonstigesContainer");
             break;
- case "Sonstiges":
+        case "Familienberatungsstellen":
             bereich = document.getElementById("familienberatungsstellenContainer");
             break;
 
@@ -595,7 +595,7 @@ inhalt.innerHTML = `
         </p>
     ` : ""}
 
-  <button type="button"
+   <button type="button"
         class="btn btn-outline-danger detailsbtn">
     Mehr Details
 </button>
