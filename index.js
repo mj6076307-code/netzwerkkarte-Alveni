@@ -514,7 +514,7 @@ document.getElementById("familienberatungsstellenContainer")?.replaceChildren();
             break;
 
         case "Soziale Beratungen der Caritas":
-            bereich = document.getElementById("sozialeberatungenContainer");
+            bereich = document.getElementById("sozialeberatungContainer");
             break;
 
         case "Sonstiges":
