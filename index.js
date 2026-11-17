@@ -442,6 +442,7 @@ async function ladeEinrichtungen() {
     document.getElementById("Beratung zur Einbürgerung")?.replaceChildren();
     document.getElementById("Rentenberatung")?.replaceChildren();
 document.getElementById("familienberatungsstellenContainer")?.replaceChildren();
+   document.getElementById("sozialeberatungContainer")?.replaceChildren();
    data.forEach(einrichtung => {
 
     let bereich;
@@ -451,7 +452,9 @@ document.getElementById("familienberatungsstellenContainer")?.replaceChildren();
         case "Rechtsberatung":
             bereich = document.getElementById("rechtsberatungContainer");
             break;
-
+ case "Soziale Beratung der Caritas":
+            bereich = document.getElementById("sozialeberatungContainer");
+            break;
         case "Schuldnerberatung":
             bereich = document.getElementById("schuldnerberatungContainer");
             break;
