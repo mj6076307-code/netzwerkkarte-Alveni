@@ -452,9 +452,7 @@ document.getElementById("familienberatungsstellenContainer")?.replaceChildren();
         case "Rechtsberatung":
             bereich = document.getElementById("rechtsberatungContainer");
             break;
- case "Soziale Beratung der Caritas":
-            bereich = document.getElementById("sozialeberatungContainer");
-            break;
+ 
         case "Schuldnerberatung":
             bereich = document.getElementById("schuldnerberatungContainer");
             break;
