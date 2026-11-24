@@ -10,7 +10,7 @@
          }
 
          h3.card-title {
-    color: darkred;
+    color: #dc3545;
 }
 
          @media (max-width: 576px) {
