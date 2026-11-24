@@ -9,7 +9,9 @@
              max-width: 25%;
          }
 
-         
+         h3.card-title {
+    color: darkred;
+}
 
          @media (max-width: 576px) {
              .row>.col {
