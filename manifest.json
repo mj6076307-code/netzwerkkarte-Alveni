@@ -1,6 +1,6 @@
 {
-  "name": "Netzwerkkarte Alveni",
-  "short_name": "Alveni",
+  "name": "Netzwerkkarte",
+  "short_name": "Dig-Netzwerkkarte",
   "description": "Digitale Netzwerkkarte für Einrichtungen",
   "start_url": "./",
   "scope": "./",
