@@ -12,7 +12,10 @@
          h3.card-title {
     color: #dc3545;
 }
-
+img{
+    max-width: 175px;
+    background-color: turquoise;
+}
          @media (max-width: 576px) {
              .row>.col {
                  flex: 0 0 100%;
